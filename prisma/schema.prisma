@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+enum Chain { 
+    MAT
+}
+
+model User {
+  id                   String        @id @default(uuid())
+  address              String        @unique
+  vpa                  String?        
+  name                 String?
+  TransactionsSent     Transaction[] @relation("Sender")
+
+  @@index([vpa])
+  @@index([address])
+}
+
+enum Status {
+  PENDING
+  SUCCESS
+  FAILED
+  CRYPTO_SUCCESS
+  FIAT_SUCCESS
+}
+
+enum CurrencyType {
+  CRYPTO
+  FIAT
+}
+
+enum Currency {
+  USD
+  INR
+}
+
+enum PaymentOrigin {
+  VAULT
+  SAVINGS
+}
+
+model Transaction {
+  id                String          @id @default(uuid())
+  status            Status
+  from              PaymentOrigin?
+  chain             Chain?          @default(MAT)
+  txnHash           String?         @unique
+  currencyType      CurrencyType
+  currency          Currency
+  value             String
+  gas               String?
+  FIAT              Float
+  fiatTransactionId String
+  payer             User            @relation("Sender", fields: [payerId], references: [id])
+  payerId           String
+  receiverAddress   String?
+  receiverVPA       String?
+}
