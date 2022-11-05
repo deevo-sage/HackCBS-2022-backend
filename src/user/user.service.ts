@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { PrismaService } from "src/prisma/prisma.service";
 
-class UserService {
+export class UserService {
     constructor(
         private readonly prisma: PrismaService,
       ) {}

@@ -94,9 +94,9 @@ export class TransactionService {
     if (status === 'MINED') {
       const paymentDetails = await this.paymentService.pay(
         transactionDetails.FIAT * 100,
+        transactionDetails.currency,
         transactionDetails.receiverVPA,
         transactionDetails.receiverAddress,
-        transactionDetails.currency,
       );
 
       await this.update(transactionDetails.id, {
