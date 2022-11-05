@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { PrismaService } from "src/prisma/prisma.service";
 
-@Controller()
+@Controller('user')
 export class UserController {
   constructor(private readonly prisma: PrismaService) {}
 
