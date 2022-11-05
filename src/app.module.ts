@@ -9,6 +9,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { PaymentService } from './payment/payment.service';
 import { TransactionService } from './transaction/transaction.service';
 import { TransactionModule } from './transaction/transaction.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TransactionModule } from './transaction/transaction.module';
       cors: { origin: '*' },
     }),
     TransactionModule,
+    UserModule,
     GlobalModule,
     ConfigModule.forRoot({
       envFilePath: ['.env'],
