@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, Param, Post } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { PrismaService } from "src/prisma/prisma.service";
 
@@ -12,7 +12,12 @@ export class UserController {
      */
     @Get(':address')
     async getUser(@Param('address') address: string) {
-        return await this.prisma.user.findUnique({ rejectOnNotFound: true, where: { address } });
+        try {
+            return await this.prisma.user.findFirstOrThrow({ where: { address } });
+        } catch (error) {
+            // return status code 400
+            throw new HttpException('User not found', 404);
+        }
     }
 
     /**
