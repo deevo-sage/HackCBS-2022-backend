@@ -9,7 +9,6 @@ export class Contract {
   constructor() {
     const { CONTRACT_ADDRESS, CONTRACT_ABI, PRIVATE_KEY } = process.env;
     const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
-
     this.contractInstance = new ethers.Contract(
       CONTRACT_ADDRESS,
       CONTRACT_ABI,

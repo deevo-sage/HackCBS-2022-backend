@@ -1197,6 +1197,13 @@
     lodash.omit "4.5.0"
     tslib "2.4.0"
 
+"@nestjs/axios@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/axios/-/axios-1.0.0.tgz#832a78525576a32b185946e5068b62eeffba0ce7"
+  integrity sha512-DzBIhmBPgPAf/Hf4oHVgNNrcYcmAwV6v1TeZFkEaotO5AtXEfCJ6c07Po4EmylAA0PFp+8+S77PBEcLNEMOCGQ==
+  dependencies:
+    axios "1.1.3"
+
 "@nestjs/cli@^9.0.0":
   version "9.1.5"
   resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-9.1.5.tgz#aa150991b209dc2b459c974cc1c43ea10a276ff8"
@@ -2161,7 +2168,7 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-axios@^1.1.3:
+axios@1.1.3, axios@^1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.1.3.tgz#8274250dada2edf53814ed7db644b9c2866c1e35"
   integrity sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==
@@ -4460,7 +4467,7 @@ node-emoji@1.11.0:
   dependencies:
     lodash "^4.17.21"
 
-node-fetch@^2.6.1, node-fetch@^2.6.7:
+node-fetch@2, node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
@@ -4930,7 +4937,7 @@ rxjs@6.6.7, rxjs@^6.6.0:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^7.2.0, rxjs@^7.5.5:
+rxjs@^7.5.5, rxjs@^7.5.7:
   version "7.5.7"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.7.tgz#2ec0d57fdc89ece220d2e702730ae8f1e49def39"
   integrity sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==
