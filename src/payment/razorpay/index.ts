@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { RAYZORPAY_PAYOUT_ENDPOINT } from 'src/common/api/urls/payout';
+import { RAYZORPAY_PAYOUT_ENDPOINT, RAYZORPAY_TRANSACTION_STATUS } from 'src/common/api/urls/payout';
 import { RayzorpayPayoutRequest } from 'src/types/api/payoutReq';
 import { generateId } from "../../common/common.utils";
 
@@ -47,5 +47,11 @@ export default class Razorpay {
             headers: this.headers
         });
         return payment.data;
+    }
+
+    async checkTransactionStatus(txnId: string) {
+        const url = RAYZORPAY_TRANSACTION_STATUS + txnId;
+        const response = await axios.get(url)
+        return response.data.status;
     }
 }

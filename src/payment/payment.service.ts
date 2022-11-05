@@ -9,7 +9,7 @@ export class PaymentService {
     }
 
     async payToUPI(amount: number, upiId: string, currency: string) {
-        this.paymentVendor.payToUPI(amount, upiId, currency);
+        return this.paymentVendor.payToUPI(amount, upiId, currency);
     }
 
     async payToPublicAddress(amount: number, publicAddress: string) {
@@ -23,5 +23,9 @@ export class PaymentService {
         if (publicAddress) {
             return this.payToPublicAddress(amount, publicAddress);
         }
+    }
+
+    async checkTransactionStatus(txnId: string) {
+        return this.paymentVendor.checkTransactionStatus(txnId);
     }
 }

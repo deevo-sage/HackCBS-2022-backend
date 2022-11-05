@@ -5,6 +5,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GlobalModule } from './global/global.module';
 import { ConfigModule } from '@nestjs/config';
+import { PrismaService } from './prisma/prisma.service';
+import { PaymentService } from './payment/payment.service';
+import { TransactionService } from './transaction/transaction.service';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -13,12 +17,18 @@ import { ConfigModule } from '@nestjs/config';
       autoSchemaFile: true,
       cors: { origin: '*' },
     }),
+    TransactionModule,
     GlobalModule,
     ConfigModule.forRoot({
       envFilePath: ['.env'],
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    PrismaService,
+    PaymentService,
+    TransactionService,
+  ],
 })
 export class AppModule {}
