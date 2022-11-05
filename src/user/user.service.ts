@@ -16,7 +16,7 @@ export class UserService {
     }
 
     async findUnique(address: string) {
-        return await this.prisma.user.findUnique({ where: { address } });
+        return await this.prisma.user.findUniqueOrThrow({ where: { address } });
     }
 
     async update(address: string, data: Prisma.UserUpdateInput) {
