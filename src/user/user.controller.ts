@@ -25,7 +25,7 @@ export class UserController {
      * @param data
      * @returns 
      */
-    @Post()
+    @Post('/')
     async createUser(@Body() data: Prisma.UserCreateInput) {
         return await this.user.create(data);
     }
